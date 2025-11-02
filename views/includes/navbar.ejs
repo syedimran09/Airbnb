@@ -1,0 +1,31 @@
+<nav class="navbar navbar-expand-md bg-body-light border-bottom fixed-top" aria-label="breadcrumb" id="navbar">
+  <div class="container-fluid">
+    <a class="navbar-brand" href="/"><i class="fa-solid fa-compass"></i></a>
+
+    <button class="navbar-toggler" type="button" 
+        data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+      <div class="navbar-nav breadcrumb">
+        <a class="nav-link breadcrumb-item" aria-current="page" href="/">Home</a>
+        <a class="nav-link breadcrumb-item active" href="/listings">All Listing</a>
+        <a class="nav-link breadcrumb-item" href="/listings/new">Add new listing</a>
+      </div>
+      <div class="navbar-nav breadcrumb ms-auto">
+        <% if (!currUser) { %>
+            <a class="nav-link breadcrumb-item" href="/signup">SignIn</a>
+            <a class="nav-link breadcrumb-item me-2" href="/login">LogIn</a>
+        <% } %>
+        <% if (currUser) { %>
+          <a class="nav-link breadcrumb-item me-2" href="/logout">LogOut</a>
+        <% } %>
+      <div class="form-check form-switch mt-2">
+        <input class="form-check-input" type="checkbox" id="darkMode" value="on" switch />
+        <label class="form-check-label" for="darkMode" id="toggleLabel" >Dark Mode</label>
+      </div>
+    </div>
+    </div>
+  </div>
+</nav>

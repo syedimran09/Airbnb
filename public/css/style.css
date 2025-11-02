@@ -1,0 +1,75 @@
+/* body */
+html,
+body {
+  height: 100%;
+}
+.wrapper {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+main {
+  flex: 1;
+}
+
+/* Navbar */
+.navbar {
+  height: 4rem;
+  background-color: white;
+}
+
+/* Icon */
+.fa-compass {
+  color: red;
+  font-size: 2rem;
+}
+
+/* nav-link */
+.nav-link {
+  color: #222222 !important;
+}
+
+/* 🌙 Dark Mode Theme */
+body.dark-mode {
+  background-color: #121212;
+  color: #ffffff;
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+/* Navbar dark mode style */
+#navbar.dark-mode {
+  background-color: #1f1f1f !important;
+}
+
+.navbar.dark-mode .nav-link {
+  color: #ffffff !important;
+}
+
+/* Optional smooth transitions for better UX */
+body, #navbar {
+  transition: background-color 0.4s ease, color 0.4s ease;
+}
+
+/* card */
+.card {
+  border-radius: 1rem !important;
+  /* width: 100% !important; */
+  object-fit: cover !important;
+}
+
+/* review card */
+.review-card {
+  border: none;
+}
+
+/* star rating */
+.star-rating i {
+  font-size: 1.5rem;
+  margin-right: 5px;
+  cursor: pointer;
+}
+
+.card-img-top {
+    height: 200px;
+    object-fit: cover;
+  }
