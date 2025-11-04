@@ -5,18 +5,16 @@ const wrapAsync = require("../utils/wrapAsync.js");
 const { isLoggedIn, isOwner, validateListing } = require("../middleware.js");
 const ListingController = require("../controllers/listings.js");
 
-
 router
   .route("/")
   //index route
-  .get(wrapAsync (ListingController.index))
+  .get(wrapAsync(ListingController.index))
   //create new listing
   .post(
     isLoggedIn,
     validateListing,
     wrapAsync(ListingController.createNewListing)
   );
-
 
 //Rendering new listing ejs template
 router.get("/new", isLoggedIn, ListingController.renderNewListing);
@@ -33,11 +31,7 @@ router
     wrapAsync(ListingController.updateListing)
   )
   //Delete route
-  .delete(
-    isLoggedIn,
-    isOwner,
-    wrapAsync(ListingController.deleteListing)
-  );
+  .delete(isLoggedIn, isOwner, wrapAsync(ListingController.deleteListing));
 
 //Edit Route
 router.get(
