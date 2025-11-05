@@ -6,7 +6,7 @@
     <% for (let list of allListings) { %>
       <div class="col-md-6 col-lg-4">
         <div class="card h-100 border-0 shadow-lg d-flex flex-column">
-          <img src="<%= list.image %>" class="card-img-top rounded-top" alt="property image">
+          <img src="<%= list.image.url %>" class="card-img-top rounded-top" alt="property image">
           <div class="card-body d-flex flex-column">
             <h5 class="card-title text-dark fw-bold mb-3"><%= list.title %></h5>
             <div class="mt-auto">

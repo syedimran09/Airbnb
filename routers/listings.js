@@ -14,14 +14,12 @@ router
   //index route
   .get(wrapAsync(ListingController.index))
   //create new listing
-  // .post(
-  //   isLoggedIn,
-  //   validateListing,
-  //   wrapAsync(ListingController.createNewListing)
-  // );
-  .post(upload.single("listing[image]"), (req, res) => {
-    res.send(req.file);
-  });
+  .post(
+    isLoggedIn,
+    upload.single("listing[image]"),
+    validateListing,
+    wrapAsync(ListingController.createNewListing)
+  );
 
 //Rendering new listing ejs template
 router.get("/new", isLoggedIn, ListingController.renderNewListing);
