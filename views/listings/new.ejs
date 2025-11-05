@@ -5,6 +5,7 @@
   action="/listings"
   class="row g-3 needs-validation"
   novalidate
+  enctype="multipart/form-data"
 >
   <div class="col-md-4">
     <label for="title" class="form-label">Title</label>
@@ -23,20 +24,21 @@
     <textarea
       name="listing[description]"
       type="text"
+      placeholder="Details about property"
       class="form-control"
       required
     ></textarea>
   </div>
   <div class="col-md-4">
-    <label for="image" class="form-label">Image</label>
+    <label for="image" class="form-label">Upload property Image</label>
     <div class="input-group has-validation">
-      <input name="listing[image]" type="text" class="form-control" required />
+      <input name="listing[image]" type="file" class="form-control" required />
       <div class="invalid-feedback">Enable to load image</div>
     </div>
   </div>
   <div class="col-md-4">
     <label for="price" class="form-label">Price</label>
-    <input name="listing[price]" type="number" class="form-control" required />
+    <input name="listing[price]" type="number" class="form-control" placeholder="per night" required />
     <div class="invalid-feedback">Enter price of stay</div>
   </div>
   <div class="col-md-4">
@@ -53,18 +55,3 @@
     <button class="btn btn-danger offset-6" type="submit"><b>Add</b></button>
   </div>
 </form>
-<!-- <script>
-  (() => {
-    'use strict';
-    const forms = document.querySelectorAll('.needs-validation');
-    Array.from(forms).forEach(form => {
-      form.addEventListener('submit', event => {
-        if (!form.checkValidity()) {
-          event.preventDefault();
-          event.stopPropagation();
-        }
-        form.classList.add('was-validated');
-      }, false);
-    });
-  })();
-</script> -->

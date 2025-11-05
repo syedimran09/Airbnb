@@ -1,3 +1,5 @@
+require("dotenv").config();
+console.log(process.env.CLOUDNAME);
 const express = require("express");
 const mongoose = require("mongoose");
 const path = require("path");
