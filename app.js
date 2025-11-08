@@ -1,5 +1,4 @@
-require("dotenv").config();
-console.log(process.env.CLOUDNAME);
+require("dotenv").config(); 
 const express = require("express");
 const mongoose = require("mongoose");
 const path = require("path");
@@ -56,12 +55,6 @@ app.use(passport.session());
 passport.use(new localStratergy(User.authenticate()));
 passport.serializeUser(User.serializeUser());
 passport.deserializeUser(User.deserializeUser());
-
-
-//exp get rest api
-app.get("/", (req, res) => {
-    res.send("Working");
-});
 
 //middleware for flashing msg's
 app.use((req, res, next) => {

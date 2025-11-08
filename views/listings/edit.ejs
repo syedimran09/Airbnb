@@ -1,13 +1,18 @@
 <%- layout('/layout/boilerplate') -%>
 
-<h3 class="mt-5">Edit Listing</h3>
-<form
-  method="post"
-  action="/listings/<%= listing._id %>?_method=put"
-  class="needs-validation row"
-  novalidate
->
-  <div class="col-md-4">
+<div class="container mt-5">
+  <div class="row justify-content-center">
+    <div class="col-lg-8 col-md-10 col-sm-12">
+      <h3 class="mb-4 text-center">Edit Listing</h3>
+      <form
+        method="post"
+        action="/listings/<%= listing._id %>?_method=put"
+        class="needs-validation row g-4"
+        novalidate
+        enctype="multipart/form-data"
+      >
+
+        <div class="col-md-4">
     <label for="title" class="form-label">Title</label>
     <input
       name="listing[title]"
@@ -32,15 +37,17 @@
       </textarea
     >
   </div>
+  <div class="col-md-3 d-flex flex-column">
+    <p>Current Image</p>
+    <img src="<%= listing.image.url %>" />
+  </div>
   <div class="col-md-4">
-    <label for="image" class="form-label">Image</label>
+    <label for="image" class="form-label">Uplaod Image</label>
     <div class="input-group has-validation">
       <input
         name="listing[image]"
-        value="<%= listing.image %>"
-        type="text"
+        type="file"
         class="form-control"
-        required
       />
       <div class="invalid-feedback">Enable to load image</div>
     </div>
@@ -78,27 +85,10 @@
     />
     <div class="invalid-feedback">Please select a valid country.</div>
   </div>
-  <br />
-  <div class="col-12">
-    <button class="btn btn-danger mt-5 offset-6" type="submit">Add</button>
+        <div class="col-12 text-center">
+          <button class="btn btn-primary mt-4 px-5" type="submit">Update Listing</button>
+        </div>
+      </form>
+    </div>
   </div>
-</form>
-<!-- <script>
-    (() => {
-      "use strict";
-      const forms = document.querySelectorAll(".needs-validation");
-      Array.from(forms).forEach((form) => {
-        form.addEventListener(
-          "submit",
-          (event) => {
-            if (!form.checkValidity()) {
-              event.preventDefault();
-              event.stopPropagation();
-            }
-            form.classList.add("was-validated");
-          },
-          false
-        );
-      });
-    })();
-  </script> -->
+</div>

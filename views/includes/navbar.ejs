@@ -1,6 +1,6 @@
 <nav class="navbar navbar-expand-md bg-body-light border-bottom fixed-top" aria-label="breadcrumb" id="navbar">
   <div class="container-fluid">
-    <a class="navbar-brand" href="/"><i class="fa-solid fa-compass"></i></a>
+    <a class="navbar-brand" href="/listings"><i class="fa-solid fa-compass"></i></a>
 
     <button class="navbar-toggler" type="button" 
         data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup">
@@ -9,17 +9,16 @@
 
     <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
       <div class="navbar-nav breadcrumb">
-        <a class="nav-link breadcrumb-item" aria-current="page" href="/">Home</a>
-        <a class="nav-link breadcrumb-item active" href="/listings">All Listing</a>
-        <a class="nav-link breadcrumb-item" href="/listings/new">Add new listing</a>
+        <a class="nav-link breadcrumb-item active" href="/listings">Explore</a>
+        <a class="nav-link breadcrumb-item" href="/listings/new">Create listing</a>
       </div>
       <div class="navbar-nav breadcrumb ms-auto">
         <% if (!currUser) { %>
-            <a class="nav-link breadcrumb-item" href="/signup">SignIn</a>
-            <a class="nav-link breadcrumb-item me-2" href="/login">LogIn</a>
+            <a class="nav-link breadcrumb-item" href="/signup"><b>SignIn</b></a>
+            <a class="nav-link breadcrumb-item me-2" href="/login"><b>LogIn</b></a>
         <% } %>
         <% if (currUser) { %>
-          <a class="nav-link breadcrumb-item me-2" href="/logout">LogOut</a>
+          <a class="nav-link breadcrumb-item me-2" href="/logout"><b>LogOut</b></a>
         <% } %>
       <div class="form-check form-switch mt-2">
         <input class="form-check-input" type="checkbox" id="darkMode" value="on" switch />
