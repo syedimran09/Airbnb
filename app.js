@@ -6,6 +6,7 @@ const methodOverride = require("method-override");
 const ejsMate = require("ejs-mate");
 const ExpressError = require("./utils/ExpressError.js");
 const session = require('express-session');
+const MongoStore = require('connect-mongo');
 const flash = require('connect-flash');
 const User = require('./models/user.js');
 const passport = require('passport');
@@ -17,7 +18,22 @@ const usersRouter = require("./routers/user");
 
 const app = express();
 const port = 3001;
+const dbUrl = process.env.ATLASDB_URL;
+
+const store = MongoStore.create({
+    mongoUrl: dbUrl,
+    crypto: {
+        secret: 'myseceretcode'
+    },
+    touchAfter: 24*3600,
+});
+
+store.on("error", () => {
+    console.log("error in mongo session store", err);
+})
+
 const sessionOptions = {
+    store,
     secret: 'myseceretcode',
     resave: false,
     saveUninitialized: true,
@@ -26,7 +42,8 @@ const sessionOptions = {
         maxAge: 7*24*60*60*1000,
         httpOnly: true,
     }
-}
+};
+
 
 app.set("view engine", "ejs");
 app.set("views", path.join(__dirname, "views"));
@@ -37,9 +54,10 @@ app.engine('ejs', ejsMate);
 app.use(session(sessionOptions));
 app.use(flash());
 
+
 //Establishing connection with mongodb
 async function main() {
-    await mongoose.connect("mongodb://127.0.0.1:27017/wanderlust");
+    await mongoose.connect(dbUrl);
 }
 main().then(() => {
     console.log("connected to Db");
